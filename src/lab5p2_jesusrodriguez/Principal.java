@@ -630,16 +630,19 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_ConfirmarTeamActionPerformed
 
     private void ConfirmarTeamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfirmarTeamMouseClicked
-        if (!Nameteam.equals("")&&!countryteam.equals("")) {
-             String Nombre=Nameteam.getText();
+       
+        
+        if (!Nameteam.getText().equals(" ")|| !countryteam.getText().equals(" ")) {
+             JOptionPane.showMessageDialog(null, "Esta vacio, Intente de nuevo");
+        }
+        else{
+            String Nombre=Nameteam.getText();
         String pais=countryteam.getText();
         team.add(new Equipo(Nombre,pais));
         JOptionPane.showMessageDialog(null, "Creado exitosamente");
         Nameteam.setText("");
         countryteam.setText("");
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Esta vacio, Intente de nuevo");
+            
         }    
         
         
