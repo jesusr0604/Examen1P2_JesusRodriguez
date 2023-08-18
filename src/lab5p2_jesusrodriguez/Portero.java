@@ -8,6 +8,8 @@ public class Portero extends Jugador {
         super(Nombre, edad, Nacionalidad, pie, equipo, Pos);
     }
     
+     
+    
     
     
     

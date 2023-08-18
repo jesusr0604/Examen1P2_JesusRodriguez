@@ -14,9 +14,10 @@ import javax.swing.JOptionPane;
  */
 public class Principal extends javax.swing.JFrame {
 
-    ArrayList<Equipo>team=new ArrayList();
-    ArrayList<Estadio>estadio=new ArrayList();
-    ArrayList<Jugador>eleven=new ArrayList();
+    ArrayList<Equipo> team = new ArrayList();
+    ArrayList<Estadio> estadio = new ArrayList();
+    ArrayList<Jugador> eleven = new ArrayList();
+
     public Principal() {
         initComponents();
     }
@@ -40,7 +41,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         Playerage1 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        ConfirmarPlayer1 = new javax.swing.JButton();
+        ModPlayer = new javax.swing.JButton();
         Nameplayer1 = new javax.swing.JTextField();
         Foot1 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
@@ -52,6 +53,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         TPlayer = new javax.swing.JComboBox<>();
+        ELIMINARP = new javax.swing.JButton();
         CrearPLAYER = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         Playerage = new javax.swing.JTextField();
@@ -78,6 +80,8 @@ public class Principal extends javax.swing.JFrame {
         City1 = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         ConfirmStadium2 = new javax.swing.JButton();
+        Estadios1 = new javax.swing.JComboBox<>();
+        jLabel29 = new javax.swing.JLabel();
         jPanel22 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -103,9 +107,11 @@ public class Principal extends javax.swing.JFrame {
         modNameteam = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         modcountryteam1 = new javax.swing.JTextField();
-        ConfirmarTeam1 = new javax.swing.JButton();
+        ModTeam = new javax.swing.JButton();
         TeamES4 = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
+        countryteam1 = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
         jPanel26 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -140,10 +146,15 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel20.setText("Edad");
 
-        ConfirmarPlayer1.setText("CONFIRMAR");
-        ConfirmarPlayer1.addActionListener(new java.awt.event.ActionListener() {
+        ModPlayer.setText("CONFIRMAR");
+        ModPlayer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ModPlayerMouseClicked(evt);
+            }
+        });
+        ModPlayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConfirmarPlayer1ActionPerformed(evt);
+                ModPlayerActionPerformed(evt);
             }
         });
 
@@ -200,7 +211,7 @@ public class Principal extends javax.swing.JFrame {
                                 .addComponent(jLabel6)
                                 .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                            .addComponent(ConfirmarPlayer1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(ModPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGap(23, 23, 23)))
         );
         jPanel10Layout.setVerticalGroup(
@@ -227,7 +238,7 @@ public class Principal extends javax.swing.JFrame {
                             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(Playerage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(ConfirmarPlayer1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ModPlayer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(18, 18, 18)
                     .addComponent(jLabel8)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -277,16 +288,33 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        ELIMINARP.setText("Eliminar Jugador");
+        ELIMINARP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ELIMINARPMouseClicked(evt);
+            }
+        });
+        ELIMINARP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ELIMINARPActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(229, 229, 229)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel26)
-                    .addComponent(TPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(240, Short.MAX_VALUE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(229, 229, 229)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel26)
+                            .addComponent(TPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(209, 209, 209)
+                        .addComponent(ELIMINARP, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(217, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,7 +323,9 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(TPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addGap(45, 45, 45)
+                .addComponent(ELIMINARP, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(127, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Eliminar", jPanel12);
@@ -490,6 +520,14 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        Estadios1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Estadios1ActionPerformed(evt);
+            }
+        });
+
+        jLabel29.setText("Estadios");
+
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
         jPanel21.setLayout(jPanel21Layout);
         jPanel21Layout.setHorizontalGroup(
@@ -499,12 +537,17 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel21Layout.createSequentialGroup()
                         .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Stadiumname1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(City1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel18))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel21Layout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addGap(103, 103, 103)
+                                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel29)
+                                    .addComponent(Estadios1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel18)
+                            .addComponent(Stadiumname1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16))
+                        .addContainerGap(268, Short.MAX_VALUE))
                     .addGroup(jPanel21Layout.createSequentialGroup()
                         .addComponent(Capacity1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 261, Short.MAX_VALUE)
@@ -519,11 +562,17 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(Stadiumname1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Capacity1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ConfirmStadium2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel21Layout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Capacity1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ConfirmStadium2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel21Layout.createSequentialGroup()
+                        .addComponent(jLabel29)
+                        .addGap(18, 18, 18)
+                        .addComponent(Estadios1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -767,19 +816,33 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        ConfirmarTeam1.setText("CONFIRMAR");
-        ConfirmarTeam1.addMouseListener(new java.awt.event.MouseAdapter() {
+        ModTeam.setText("CONFIRMAR");
+        ModTeam.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ConfirmarTeam1MouseClicked(evt);
+                ModTeamMouseClicked(evt);
             }
         });
-        ConfirmarTeam1.addActionListener(new java.awt.event.ActionListener() {
+        ModTeam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConfirmarTeam1ActionPerformed(evt);
+                ModTeamActionPerformed(evt);
+            }
+        });
+
+        TeamES4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TeamES4ActionPerformed(evt);
             }
         });
 
         jLabel4.setText("Equipo");
+
+        countryteam1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                countryteam1ActionPerformed(evt);
+            }
+        });
+
+        jLabel28.setText("Pais");
 
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
@@ -788,9 +851,6 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel25Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel25Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel25Layout.createSequentialGroup()
                         .addComponent(TeamES4, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -801,8 +861,14 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(modNameteam, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel14))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 269, Short.MAX_VALUE)
-                        .addComponent(ConfirmarTeam1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52))))
+                        .addComponent(ModTeam, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52))
+                    .addGroup(jPanel25Layout.createSequentialGroup()
+                        .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel28)
+                            .addComponent(countryteam1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel25Layout.setVerticalGroup(
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -811,14 +877,21 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TeamES4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
-                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ConfirmarTeam1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addComponent(jLabel28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(countryteam1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel25Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                        .addComponent(ModTeam, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38))
+                    .addGroup(jPanel25Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(modNameteam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(38, 38, 38)
+                        .addComponent(modNameteam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(modcountryteam1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1038,48 +1111,46 @@ public class Principal extends javax.swing.JFrame {
 
     private void ConfirmarTeamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfirmarTeamMouseClicked
 
-        if (Nameteam.getText().equals(" ")|| countryteam.getText().equals(" ")) {
+        if (Nameteam.getText().equals(" ") || countryteam.getText().equals(" ")) {
             JOptionPane.showMessageDialog(null, "Esta vacio, Intente de nuevo");
-        }
-        else{
-            String Nombre=Nameteam.getText();
-            String pais=countryteam.getText();
-            team.add(new Equipo(Nombre,pais));
+        } else {
+            String Nombre = Nameteam.getText();
+            String pais = countryteam.getText();
+            team.add(new Equipo(Nombre, pais));
             JOptionPane.showMessageDialog(null, "Creado exitosamente");
             Nameteam.setText("");
             countryteam.setText("");
-            
-            
-             DefaultComboBoxModel modelo= (DefaultComboBoxModel) TeamES.getModel();
-             for (Equipo equipo : team) {
-                 modelo.addElement(equipo);
-                 
-             }
-             
-             DefaultComboBoxModel modelo2= (DefaultComboBoxModel) TeamES2.getModel();
-             for (Equipo equipo : team) {
-                 modelo2.addElement(equipo);
-                 
-             }
 
-             DefaultComboBoxModel modelo3= (DefaultComboBoxModel) TeamES3.getModel();
-             for (Equipo equipo : team) {
-                 modelo3.addElement(equipo);
-                 
-             }
+            DefaultComboBoxModel modelo = (DefaultComboBoxModel) TeamES.getModel();
+            for (Equipo equipo : team) {
+                modelo.addElement(equipo);
 
-              DefaultComboBoxModel modelo4= (DefaultComboBoxModel) TeamES4.getModel();
-             for (Equipo equipo : team) {
-                 modelo4.addElement(equipo);
-                 
-             }
-             
-             DefaultComboBoxModel modelo5= (DefaultComboBoxModel) TeamES5.getModel();
-             for (Equipo equipo : team) {
-                 modelo5.addElement(equipo);
-                 
-             }
-             
+            }
+
+            DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) TeamES2.getModel();
+            for (Equipo equipo : team) {
+                modelo2.addElement(equipo);
+
+            }
+
+            DefaultComboBoxModel modelo3 = (DefaultComboBoxModel) TeamES3.getModel();
+            for (Equipo equipo : team) {
+                modelo3.addElement(equipo);
+
+            }
+
+            DefaultComboBoxModel modelo4 = (DefaultComboBoxModel) TeamES4.getModel();
+            for (Equipo equipo : team) {
+                modelo4.addElement(equipo);
+
+            }
+
+            DefaultComboBoxModel modelo5 = (DefaultComboBoxModel) TeamES5.getModel();
+            for (Equipo equipo : team) {
+                modelo5.addElement(equipo);
+
+            }
+
         }
 
     }//GEN-LAST:event_ConfirmarTeamMouseClicked
@@ -1105,30 +1176,28 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_ConfirmStadiumActionPerformed
 
     private void ConfirmStadiumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfirmStadiumMouseClicked
-         if (Stadiumname.getText().equals(" ")|| Capacity.getText().equals(" ")|| City.getText().equals(" ")) {
+        if (Stadiumname.getText().equals(" ") || Capacity.getText().equals(" ") || City.getText().equals(" ")) {
             JOptionPane.showMessageDialog(null, "Esta vacio, Intente de nuevo");
-        }
-        else{
-            String Nombre=Stadiumname.getText();
-            int capacity=Integer.parseInt(Capacity.getText());
-            String city=City.getText();
-            Equipo teams= team.get( TeamES.getSelectedIndex() );
-            estadio.add(new Estadio(Nombre,capacity,city,teams));
+        } else {
+            String Nombre = Stadiumname.getText();
+            int capacity = Integer.parseInt(Capacity.getText());
+            String city = City.getText();
+            Equipo teams = team.get(TeamES.getSelectedIndex());
+            estadio.add(new Estadio(Nombre, capacity, city, teams));
             JOptionPane.showMessageDialog(null, "Creado exitosamente");
             Stadiumname.setText("");
             City.setText(" ");
             Capacity.setText("");
-            DefaultComboBoxModel modelo4= (DefaultComboBoxModel) Estadios.getModel();
-             
-             for (Estadio st : estadio) {
-                 modelo4.addElement(st);
-             }
-    
-                 
-                 
-             
-            
-            
+            DefaultComboBoxModel modelo4 = (DefaultComboBoxModel) Estadios.getModel();
+
+            for (Estadio st : estadio) {
+                modelo4.addElement(st);
+            }
+            DefaultComboBoxModel modelo5 = (DefaultComboBoxModel) Estadios1.getModel();
+
+            for (Estadio st : estadio) {
+                modelo5.addElement(st);
+            }
 
         }
     }//GEN-LAST:event_ConfirmStadiumMouseClicked
@@ -1138,52 +1207,67 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_CapacityActionPerformed
 
     private void ConfirmarPlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarPlayerActionPerformed
-         if (Nameplayer.getText().equals(" ")|| Playerage.getText().equals(" ")|| Foot.getText().equals(" ")|| Nationality.getText().equals(" ")) {
+        if (Nameplayer.getText().equals(" ") || Playerage.getText().equals(" ") || Foot.getText().equals(" ") || Nationality.getText().equals(" ")) {
             JOptionPane.showMessageDialog(null, "Esta vacio, Intente de nuevo");
-        }
-        else{
-            String Nombre=Nameplayer.getText();
-            int edad=Integer.parseInt(Playerage.getText());
-            String pie=Foot.getText();
-            Equipo teams2= team.get( TeamES2.getSelectedIndex() );
-             String nacion=Nationality.getText();
-             String posicion= Posicion.getText().toLowerCase();
-             
-             switch(posicion){
-                 case "portero":{
-                     eleven.add(new Portero(Nombre,edad,nacion,pie,teams2,posicion));
-                     JOptionPane.showMessageDialog(null, "Portero Agregado");
-                 }
-                 break;
-                 case "defensa":{
-                     eleven.add(new Defensa(Nombre,edad,nacion,pie,teams2,posicion));
-                      JOptionPane.showMessageDialog(null, "Defensa Agregado");
-                 }
-                 break;
-                 case "mediocampo":{
-                     eleven.add(new Mediocampo(Nombre,edad,nacion,pie,teams2,posicion));
-                      JOptionPane.showMessageDialog(null, "Mediocampo Agregado");
-                 }
-                 break;
-                 case "delantero":{
-                     eleven.add(new Delantero(Nombre,edad,nacion,pie,teams2,posicion));
-                      JOptionPane.showMessageDialog(null, "delantero Agregado");
-                 }
-                 break;
-             }
-             
- eleven.add(new Jugador(Nombre,edad,nacion,pie,teams2,posicion));
-            
-            
-            
-            
-            JOptionPane.showMessageDialog(null, "Creado exitosamente");
+        } else {
+            String Nombre = Nameplayer.getText();
+            int edad = Integer.parseInt(Playerage.getText());
+            String pie = Foot.getText();
+            Equipo teams2 = team.get(TeamES2.getSelectedIndex());
+            String nacion = Nationality.getText();
+            String posicion = Posicion.getText().toLowerCase();
+
+            switch (posicion) {
+                case "portero": {
+                    eleven.add(new Portero(Nombre, edad, nacion, pie, teams2, posicion));
+                    JOptionPane.showMessageDialog(null, "Portero Agregado");
+                    DefaultComboBoxModel modelo6 = (DefaultComboBoxModel) TPlayer.getModel();
+                    for (Jugador p : eleven) {
+                        modelo6.addElement(p);
+
+                    }
+                }
+                break;
+                case "defensa": {
+                    eleven.add(new Defensa(Nombre, edad, nacion, pie, teams2, posicion));
+                    JOptionPane.showMessageDialog(null, "Defensa Agregado");
+                    DefaultComboBoxModel modelo6 = (DefaultComboBoxModel) TPlayer.getModel();
+                    for (Jugador p : eleven) {
+                        modelo6.addElement(p);
+                    }
+                }
+                break;
+                case "mediocampo": {
+                    eleven.add(new Mediocampo(Nombre, edad, nacion, pie, teams2, posicion));
+                    JOptionPane.showMessageDialog(null, "Mediocampo Agregado");
+                    DefaultComboBoxModel modelo6 = (DefaultComboBoxModel) TPlayer.getModel();
+                    for (Jugador p : eleven) {
+                        modelo6.addElement(p);
+                    }
+
+                }
+                break;
+                case "delantero": {
+                    eleven.add(new Delantero(Nombre, edad, nacion, pie, teams2, posicion));
+                    JOptionPane.showMessageDialog(null, "delantero Agregado");
+                    DefaultComboBoxModel modelo6 = (DefaultComboBoxModel) TPlayer.getModel();
+                    for (Jugador p : eleven) {
+                        modelo6.addElement(p);
+                    }
+
+                }
+                break;
+                default: {
+                    JOptionPane.showMessageDialog(null, "No Valido");
+                }
+            }
+
             Nameplayer.setText("");
-            Playerage.setText(" ");
+            Playerage.setText("");
             Nationality.setText("");
-            Foot.setText(" ");
-            Posicion.setText(" ");
-         }
+            Foot.setText("");
+            Posicion.setText("");
+        }
     }//GEN-LAST:event_ConfirmarPlayerActionPerformed
 
     private void FootActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FootActionPerformed
@@ -1206,13 +1290,60 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_modcountryteam1ActionPerformed
 
-    private void ConfirmarTeam1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfirmarTeam1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ConfirmarTeam1MouseClicked
+    private void ModTeamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModTeamMouseClicked
+        int selectedIndex = TeamES4.getSelectedIndex();
+        if (selectedIndex != -1) {
+            String Nombre = modNameteam.getText();
+            String pais = modcountryteam1.getText();
+            team.add(new Equipo(Nombre, pais));
+            JOptionPane.showMessageDialog(null, "Creado exitosamente");
+            
+          Equipo a= new Equipo(Nombre, pais);
+                team.set(selectedIndex, new Equipo(Nombre, pais));
+                TeamES4.removeItemAt(selectedIndex);
+                 TeamES.removeItemAt(selectedIndex);
+                  TeamES2.removeItemAt(selectedIndex);
+                   TeamES3.removeItemAt(selectedIndex);
+                    TeamES5.removeItemAt(selectedIndex);
+                DefaultComboBoxModel modelo = (DefaultComboBoxModel) TeamES.getModel();
+            for (Equipo equipo : team) {
+                modelo.addElement(equipo);
 
-    private void ConfirmarTeam1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarTeam1ActionPerformed
+            }
+
+            DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) TeamES2.getModel();
+            for (Equipo equipo : team) {
+                modelo2.addElement(equipo);
+
+            }
+
+            DefaultComboBoxModel modelo3 = (DefaultComboBoxModel) TeamES3.getModel();
+            for (Equipo equipo : team) {
+                modelo3.addElement(equipo);
+
+            }
+
+            DefaultComboBoxModel modelo4 = (DefaultComboBoxModel) TeamES4.getModel();
+            for (Equipo equipo : team) {
+                modelo4.addElement(equipo);
+
+            }
+
+            DefaultComboBoxModel modelo5 = (DefaultComboBoxModel) TeamES5.getModel();
+            for (Equipo equipo : team) {
+                modelo5.addElement(equipo);
+
+            }
+                 modNameteam.setText("");
+            modcountryteam1.setText("");
+                System.out.println("Elemento modificado");
+            
+        }
+    }//GEN-LAST:event_ModTeamMouseClicked
+
+    private void ModTeamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModTeamActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ConfirmarTeam1ActionPerformed
+    }//GEN-LAST:event_ModTeamActionPerformed
 
     private void Capacity1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Capacity1ActionPerformed
         // TODO add your handling code here:
@@ -1238,9 +1369,9 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Playerage1ActionPerformed
 
-    private void ConfirmarPlayer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarPlayer1ActionPerformed
+    private void ModPlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModPlayerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ConfirmarPlayer1ActionPerformed
+    }//GEN-LAST:event_ModPlayerActionPerformed
 
     private void Nameplayer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Nameplayer1ActionPerformed
         // TODO add your handling code here:
@@ -1315,6 +1446,36 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PosicionActionPerformed
 
+    private void ELIMINARPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ELIMINARPMouseClicked
+         int selectedIndex = TPlayer.getSelectedIndex();
+        if (selectedIndex != -1) {
+            eleven.remove(selectedIndex);
+            TPlayer.removeItemAt(selectedIndex);
+            System.out.println("Elemento eliminado");
+            JOptionPane.showMessageDialog(null, "Jugador Eliminado");
+        }
+    }//GEN-LAST:event_ELIMINARPMouseClicked
+
+    private void ELIMINARPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ELIMINARPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ELIMINARPActionPerformed
+
+    private void ModPlayerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModPlayerMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ModPlayerMouseClicked
+
+    private void countryteam1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countryteam1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_countryteam1ActionPerformed
+
+    private void TeamES4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeamES4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TeamES4ActionPerformed
+
+    private void Estadios1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Estadios1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Estadios1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1359,17 +1520,19 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton ConfirmStadium;
     private javax.swing.JButton ConfirmStadium2;
     private javax.swing.JButton ConfirmarPlayer;
-    private javax.swing.JButton ConfirmarPlayer1;
     private javax.swing.JButton ConfirmarTeam;
-    private javax.swing.JButton ConfirmarTeam1;
     private javax.swing.JPanel CrearPLAYER;
     private javax.swing.JButton ELIMINARE;
+    private javax.swing.JButton ELIMINARP;
     private javax.swing.JButton EliminarEQ;
     private javax.swing.JTabbedPane Equipo;
     private javax.swing.JComboBox<String> Estadios;
+    private javax.swing.JComboBox<String> Estadios1;
     private javax.swing.JTextField Foot;
     private javax.swing.JTextField Foot1;
     private javax.swing.JPanel Jugador;
+    private javax.swing.JButton ModPlayer;
+    private javax.swing.JButton ModTeam;
     private javax.swing.JTextField Nameplayer;
     private javax.swing.JTextField Nameplayer1;
     private javax.swing.JTextField Nameteam;
@@ -1386,6 +1549,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> TeamES4;
     private javax.swing.JComboBox<String> TeamES5;
     private javax.swing.JTextField countryteam;
+    private javax.swing.JTextField countryteam1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1406,6 +1570,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
