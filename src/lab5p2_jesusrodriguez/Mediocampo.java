@@ -5,6 +5,6 @@
 package lab5p2_jesusrodriguez;
 
 
-public class Otro {
+public class Mediocampo extends Jugador{
     
 }
