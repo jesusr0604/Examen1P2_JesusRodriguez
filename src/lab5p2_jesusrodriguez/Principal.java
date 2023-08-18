@@ -1147,8 +1147,32 @@ public class Principal extends javax.swing.JFrame {
             String pie=Foot.getText();
             Equipo teams2= team.get( TeamES2.getSelectedIndex() );
              String nacion=Nationality.getText();
-             String posicion= Posicion.getText();
-            eleven.add(new Jugador(Nombre,edad,nacion,pie,teams2,posicion));
+             String posicion= Posicion.getText().toLowerCase();
+             
+             switch(posicion){
+                 case "portero":{
+                     eleven.add(new Portero(Nombre,edad,nacion,pie,teams2,posicion));
+                     JOptionPane.showMessageDialog(null, "Portero Agregado");
+                 }
+                 break;
+                 case "defensa":{
+                     eleven.add(new Defensa(Nombre,edad,nacion,pie,teams2,posicion));
+                      JOptionPane.showMessageDialog(null, "Defensa Agregado");
+                 }
+                 break;
+                 case "mediocampo":{
+                     eleven.add(new Mediocampo(Nombre,edad,nacion,pie,teams2,posicion));
+                      JOptionPane.showMessageDialog(null, "Mediocampo Agregado");
+                 }
+                 break;
+                 case "delantero":{
+                     eleven.add(new Delantero(Nombre,edad,nacion,pie,teams2,posicion));
+                      JOptionPane.showMessageDialog(null, "delantero Agregado");
+                 }
+                 break;
+             }
+             
+ eleven.add(new Jugador(Nombre,edad,nacion,pie,teams2,posicion));
             
             
             
