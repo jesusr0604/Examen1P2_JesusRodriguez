@@ -19,12 +19,12 @@ public class Jugador {
            private int regat;
             private int shoot;
           
-    public Jugador(String Nombre, int edad, String Nacionalidad, String pie, int rating, Equipo equipo, int agarre, int lanz, int fisico, int ritmo, int entrada, int vision, int Pass, int regat, int shoot) {
+    public Jugador(String Nombre, int edad, String Nacionalidad, String pie, Equipo equipo) {
         this.Nombre = Nombre;
         this.edad = edad;
         this.Nacionalidad = Nacionalidad;
         this.pie = pie;
-        this.rating = rating;
+        this.rating = 0;
         this.equipo = equipo;
         this.agarre = 0;
         this.lanz = 0;
@@ -39,26 +39,13 @@ public class Jugador {
          
     
 
-    public Jugador(String Nombre, int edad, String Nacionalidad, String pie) {
-        this.Nombre = Nombre;
-        this.edad = edad;
-        this.Nacionalidad = Nacionalidad;
-        this.pie = pie;
-    }
-    
+   
     
     
     
     
 
-    public Jugador(String Nombre, int edad, String Nacionalidad, String pie, int rating, Equipo equipo) {
-        this.Nombre = Nombre;
-        this.edad = edad;
-        this.Nacionalidad = Nacionalidad;
-        this.pie = pie;
-        this.rating = rating;
-        this.equipo = equipo;
-    }
+   
 
     public Jugador() {
     }
@@ -192,7 +179,7 @@ public class Jugador {
 
     @Override
     public String toString() {
-        return "Nombre=" + Nombre + ", edad=" + edad + ", Nacionalidad=" + Nacionalidad + ", pie=" + pie + ", rating=" + rating + ", equipo=" + equipo ;
+        return "Nombre=" + Nombre + ", edad=" + edad  ;
     }
     
     

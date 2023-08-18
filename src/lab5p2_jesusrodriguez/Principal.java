@@ -16,6 +16,7 @@ public class Principal extends javax.swing.JFrame {
 
     ArrayList<Equipo>team=new ArrayList();
     ArrayList<Estadio>estadio=new ArrayList();
+    ArrayList<Jugador>eleven=new ArrayList();
     public Principal() {
         initComponents();
     }
@@ -44,8 +45,6 @@ public class Principal extends javax.swing.JFrame {
         Foot1 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
         jPanel12 = new javax.swing.JPanel();
         CrearPLAYER = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -53,11 +52,13 @@ public class Principal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         Nameplayer = new javax.swing.JTextField();
         Foot = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         ConfirmarPlayer = new javax.swing.JButton();
+        TeamES2 = new javax.swing.JComboBox<>();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        Nationality = new javax.swing.JTextField();
         Jugador = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jTabbedPane6 = new javax.swing.JTabbedPane();
@@ -90,10 +91,8 @@ public class Principal extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         modcountryteam1 = new javax.swing.JTextField();
         ConfirmarTeam1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel21 = new javax.swing.JLabel();
         jPanel26 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jPanel27 = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -201,34 +200,15 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("Modificar", jPanel10);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Nombre", "Pais", "Posicion", "Edad"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
-
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
+            .addGap(0, 650, Short.MAX_VALUE)
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+            .addGap(0, 306, Short.MAX_VALUE)
         );
 
         jTabbedPane3.addTab("Listar", jPanel11);
@@ -268,20 +248,33 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Posicion");
-
         jLabel5.setText("Pie Habil");
 
         ConfirmarPlayer.setText("CONFIRMAR");
+        ConfirmarPlayer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ConfirmarPlayerMouseClicked(evt);
+            }
+        });
         ConfirmarPlayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConfirmarPlayerActionPerformed(evt);
+            }
+        });
+
+        TeamES2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TeamES2ActionPerformed(evt);
+            }
+        });
+
+        jLabel22.setText("Equipo");
+
+        jLabel23.setText("Nacionalidad");
+
+        Nationality.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NationalityActionPerformed(evt);
             }
         });
 
@@ -300,41 +293,57 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(Playerage, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
-                        .addGap(60, 60, 60)
                         .addGroup(CrearPLAYERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
                             .addGroup(CrearPLAYERLayout.createSequentialGroup()
+                                .addGap(60, 60, 60)
                                 .addGroup(CrearPLAYERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                                .addComponent(ConfirmarPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(CrearPLAYERLayout.createSequentialGroup()
+                                        .addGroup(CrearPLAYERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel23)
+                                            .addComponent(Nationality, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                                        .addComponent(ConfirmarPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(CrearPLAYERLayout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addGroup(CrearPLAYERLayout.createSequentialGroup()
+                                .addGap(48, 48, 48)
+                                .addGroup(CrearPLAYERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel22)
+                                    .addComponent(TeamES2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(30, 30, 30))
         );
         CrearPLAYERLayout.setVerticalGroup(
             CrearPLAYERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CrearPLAYERLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(Nameplayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(CrearPLAYERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(CrearPLAYERLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(Nameplayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(CrearPLAYERLayout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Nationality, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(CrearPLAYERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CrearPLAYERLayout.createSequentialGroup()
-                        .addGroup(CrearPLAYERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3))
+                        .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(CrearPLAYERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Playerage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Playerage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(ConfirmarPlayer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(CrearPLAYERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CrearPLAYERLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                        .addGroup(CrearPLAYERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel22))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Foot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(CrearPLAYERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Foot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TeamES2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel7))
                 .addContainerGap(87, Short.MAX_VALUE))
         );
@@ -498,7 +507,6 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        TeamES.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         TeamES.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TeamESActionPerformed(evt);
@@ -631,7 +639,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel21.setText("Nombre");
 
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
@@ -640,25 +648,21 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel25Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel25Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel25Layout.createSequentialGroup()
-                        .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
-                            .addComponent(modcountryteam1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(modNameteam, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel14))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 269, Short.MAX_VALUE)
-                        .addComponent(ConfirmarTeam1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52))))
+                    .addComponent(jLabel15)
+                    .addComponent(modcountryteam1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(modNameteam, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel21))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 269, Short.MAX_VALUE)
+                .addComponent(ConfirmarTeam1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
         );
         jPanel25Layout.setVerticalGroup(
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel25Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(jLabel21)
+                .addGap(41, 41, 41)
                 .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(ConfirmarTeam1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel25Layout.createSequentialGroup()
@@ -674,34 +678,15 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane7.addTab("Modificar", jPanel25);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Equipo", "Pais", "Rating"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
         javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
         jPanel26.setLayout(jPanel26Layout);
         jPanel26Layout.setHorizontalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel26Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+            .addGap(0, 638, Short.MAX_VALUE)
         );
         jPanel26Layout.setVerticalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel26Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+            .addGap(0, 306, Short.MAX_VALUE)
         );
 
         jTabbedPane7.addTab("Listar", jPanel26);
@@ -873,6 +858,19 @@ public class Principal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Creado exitosamente");
             Nameteam.setText("");
             countryteam.setText("");
+            
+            
+             DefaultComboBoxModel modelo= (DefaultComboBoxModel) TeamES.getModel();
+             for (Equipo equipo : team) {
+                 modelo.addElement(equipo);
+                 
+             }
+             
+             DefaultComboBoxModel modelo2= (DefaultComboBoxModel) TeamES2.getModel();
+             for (Equipo equipo : team) {
+                 modelo2.addElement(equipo);
+                 
+             }
 
         }
 
@@ -903,18 +901,17 @@ public class Principal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Esta vacio, Intente de nuevo");
         }
         else{
-            String Nombre=Nameteam.getText();
-            String pais=countryteam.getText();
-            team.add(new Equipo(Nombre,pais));
+            String Nombre=Stadiumname.getText();
+            int capacity=Integer.parseInt(Capacity.getText());
+            String city=City.getText();
+            Equipo teams= team.get( TeamES.getSelectedIndex() );
+            estadio.add(new Estadio(Nombre,capacity,city,teams));
             JOptionPane.showMessageDialog(null, "Creado exitosamente");
-            Nameteam.setText("");
-            countryteam.setText("");
+            Stadiumname.setText("");
+            City.setText(" ");
+            Capacity.setText("");
             
-             DefaultComboBoxModel modelo= (DefaultComboBoxModel) TeamES.getModel();
-             for (Equipo equipo : team) {
-                 modelo.addElement(equipo);
-                 
-             }
+            
 
         }
     }//GEN-LAST:event_ConfirmStadiumMouseClicked
@@ -924,12 +921,23 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_CapacityActionPerformed
 
     private void ConfirmarPlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarPlayerActionPerformed
-        // TODO add your handling code here:
+         if (Nameplayer.getText().equals(" ")|| Playerage.getText().equals(" ")|| Foot.getText().equals(" ")|| Nationality.getText().equals(" ")) {
+            JOptionPane.showMessageDialog(null, "Esta vacio, Intente de nuevo");
+        }
+        else{
+            String Nombre=Nameplayer.getText();
+            int edad=Integer.parseInt(Playerage.getText());
+            String pie=Foot.getText();
+            Equipo teams2= team.get( TeamES2.getSelectedIndex() );
+             String nacion=Nationality.getText();
+            eleven.add(new Jugador(Nombre,edad,nacion,pie,teams2));
+            JOptionPane.showMessageDialog(null, "Creado exitosamente");
+            Nameplayer.setText("");
+            Playerage.setText(" ");
+            Nationality.setText("");
+            Foot.setText(" ");
+         }
     }//GEN-LAST:event_ConfirmarPlayerActionPerformed
-
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void FootActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FootActionPerformed
         // TODO add your handling code here:
@@ -1003,6 +1011,18 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TeamESActionPerformed
 
+    private void ConfirmarPlayerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfirmarPlayerMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConfirmarPlayerMouseClicked
+
+    private void TeamES2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeamES2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TeamES2ActionPerformed
+
+    private void NationalityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NationalityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NationalityActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1058,13 +1078,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField Nameplayer;
     private javax.swing.JTextField Nameplayer1;
     private javax.swing.JTextField Nameteam;
+    private javax.swing.JTextField Nationality;
     private javax.swing.JTextField Playerage;
     private javax.swing.JTextField Playerage1;
     private javax.swing.JTextField Stadiumname;
     private javax.swing.JTextField Stadiumname1;
     private javax.swing.JComboBox<String> TeamES;
+    private javax.swing.JComboBox<String> TeamES2;
     private javax.swing.JTextField countryteam;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1078,8 +1099,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1101,14 +1124,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane6;
     private javax.swing.JTabbedPane jTabbedPane7;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField modNameteam;
     private javax.swing.JTextField modcountryteam1;

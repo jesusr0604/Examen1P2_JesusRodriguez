@@ -6,5 +6,9 @@ package lab5p2_jesusrodriguez;
 
 
 public class Mediocampo extends Jugador{
+
+    public Mediocampo(String Nombre, int edad, String Nacionalidad, String pie, Equipo equipo) {
+        super(Nombre, edad, Nacionalidad, pie, equipo);
+    }
     
 }
