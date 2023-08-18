@@ -58,10 +58,15 @@ public class Estadio {
     public void setEquipo(Equipo equipo) {
         this.equipo = equipo;
     }
+    
+    
+    private String nameequipo(){
+        return this.equipo.getNombre();
+    } 
 
     @Override
     public String toString() {
-        return "Nombre=" + Nombre + ", capacidad=" + capacidad + ", ciudad=" + ciudad + ", equipo=" + equipo ;
+        return "Nombre=" + Nombre + ", capacidad=" + capacidad + ", ciudad=" + ciudad + ", equipo=" + nameequipo() ;
     }
 
     
