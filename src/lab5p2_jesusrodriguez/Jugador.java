@@ -7,6 +7,7 @@ public class Jugador {
     private int edad;
     private String Nacionalidad;
     private String pie;
+    private String pos;
     private int rating;
     private Equipo equipo;
      private int agarre;
@@ -19,11 +20,12 @@ public class Jugador {
            private int regat;
             private int shoot;
           
-    public Jugador(String Nombre, int edad, String Nacionalidad, String pie, Equipo equipo) {
+    public Jugador(String Nombre, int edad, String Nacionalidad, String pie, Equipo equipo, String pos) {
         this.Nombre = Nombre;
         this.edad = edad;
         this.Nacionalidad = Nacionalidad;
         this.pie = pie;
+        this.pos=pos;
         this.rating = 0;
         this.equipo = equipo;
         this.agarre = 0;
