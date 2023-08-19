@@ -4,11 +4,24 @@
  */
 package lab5p2_jesusrodriguez;
 
+import java.util.Random;
+
 
 public class Defensa extends Jugador{
-
+static Random ran = new Random();
     public Defensa(String Nombre, int edad, String Nacionalidad, String pie, Equipo equipo,String Pos) {
         super(Nombre, edad, Nacionalidad, pie, equipo,Pos);
     }
-    
+    public void setcal(){
+        this.agarre =(ran.nextInt(5)+1)*13;
+        this.lanz = (ran.nextInt(5)+1)*13;
+        this.fisico = (ran.nextInt(12)+1)*12;;
+        this.ritmo =(ran.nextInt(12)+1)*12;;
+        this.entrada = (ran.nextInt(12)+1)*12;;
+        this.vision = (ran.nextInt(5)+1)*13;
+        this.Pass = (ran.nextInt(5)+1)*13;
+        this.regat = (ran.nextInt(5)+1)*13;
+        this.shoot = (ran.nextInt(5)+1)*13;
+        this.rating=(fisico+ritmo+entrada+vision+Pass+regat+shoot+rating)/7;
+    }
 }

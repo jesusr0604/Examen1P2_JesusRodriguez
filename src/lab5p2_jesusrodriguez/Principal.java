@@ -136,6 +136,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel31 = new javax.swing.JLabel();
         TeamES7 = new javax.swing.JComboBox<>();
         jLabel32 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1167,6 +1168,8 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel32.setText("Equipo 2");
 
+        jButton4.setText("Simular");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -1178,7 +1181,11 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(TeamES7, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel31)
                     .addComponent(TeamES6, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(456, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(298, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(280, 280, 280))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1191,7 +1198,9 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jLabel32)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TeamES7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addGap(61, 61, 61)
+                .addComponent(jButton4)
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         Equipo.addTab("Simulacion", jPanel3);
@@ -1893,6 +1902,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

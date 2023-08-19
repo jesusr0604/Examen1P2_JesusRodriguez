@@ -8,17 +8,17 @@ public abstract class  Jugador {
     private String Nacionalidad;
     private String pie;
     private String pos;
-    private int rating;
+    protected int rating;
     private Equipo equipo;
-     private int agarre;
-      private int lanz;
-       private int fisico;
-        private int ritmo;
-         private int entrada;
-         private int vision;
-          private int Pass;
-           private int regat;
-            private int shoot;
+     protected int agarre;
+      protected int lanz;
+       protected int fisico;
+        protected int ritmo;
+         protected int entrada;
+         protected int vision;
+          protected int Pass;
+           protected int regat;
+            protected int shoot;
           
     public Jugador(String Nombre, int edad, String Nacionalidad, String pie, Equipo equipo, String pos) {
         this.Nombre = Nombre;

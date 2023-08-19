@@ -1562,7 +1562,12 @@
                               <Component id="jLabel31" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="TeamES6" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="456" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="298" max="32767" attributes="0"/>
+                          <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="280" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1577,7 +1582,9 @@
                           <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="TeamES7" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="165" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                          <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="81" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1611,6 +1618,11 @@
                 <Component class="javax.swing.JLabel" name="jLabel32">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Equipo 2"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton4">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Simular"/>
                   </Properties>
                 </Component>
               </SubComponents>
