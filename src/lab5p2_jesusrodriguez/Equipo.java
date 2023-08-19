@@ -22,9 +22,9 @@ public class Equipo {
     
     
 
-    public Equipo(String Nombre, int rating, String pais, ArrayList<Jugador> plantilla) {
+    public Equipo(String Nombre,  String pais, ArrayList<Jugador> plantilla) {
         this.Nombre = Nombre;
-        this.rating = rating;
+      
         this.pais = pais;
         this.plantilla = plantilla;
     }
@@ -37,11 +37,11 @@ public class Equipo {
         this.Nombre = Nombre;
     }
 
-    public int getRating() {
+    private int getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    private void setRating(int rating) {
         this.rating = rating;
     }
 
