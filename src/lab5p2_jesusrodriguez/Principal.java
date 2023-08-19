@@ -49,7 +49,7 @@ public class Principal extends javax.swing.JFrame {
         TeamES3 = new javax.swing.JComboBox<>();
         jPanel11 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        ListaJugador = new javax.swing.JTable();
         jPanel12 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         TPlayer = new javax.swing.JComboBox<>();
@@ -86,7 +86,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jPanel22 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        ListaEstadio = new javax.swing.JTable();
         jPanel23 = new javax.swing.JPanel();
         Estadios = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
@@ -116,7 +116,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jPanel26 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        ListaEquipo = new javax.swing.JTable();
         jPanel27 = new javax.swing.JPanel();
         TeamES5 = new javax.swing.JComboBox<>();
         jLabel25 = new javax.swing.JLabel();
@@ -250,18 +250,18 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("Modificar", jPanel10);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        ListaJugador.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Edad", "Nacionalidad", "Equipo", "Rating"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(ListaJugador);
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -604,7 +604,7 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane6.addTab("Modificar", jPanel21);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        ListaEstadio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -612,10 +612,10 @@ public class Principal extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Ciudad", "Capacidad", "Equipo"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(ListaEstadio);
 
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
         jPanel22.setLayout(jPanel22Layout);
@@ -922,7 +922,7 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane7.addTab("Modificar", jPanel25);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ListaEquipo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -930,10 +930,10 @@ public class Principal extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Pais", "Rating ", "Jugadores"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(ListaEquipo);
 
         javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
         jPanel26.setLayout(jPanel26Layout);
@@ -960,6 +960,11 @@ public class Principal extends javax.swing.JFrame {
         EliminarEQ.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 EliminarEQMouseClicked(evt);
+            }
+        });
+        EliminarEQ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarEQActionPerformed(evt);
             }
         });
 
@@ -1146,6 +1151,12 @@ public class Principal extends javax.swing.JFrame {
             DefaultComboBoxModel modelo = (DefaultComboBoxModel) TeamES.getModel();
             for (Equipo equipo : team) {
                 modelo.addElement(equipo);
+
+            }
+            
+            DefaultComboBoxModel modelo8 = (DefaultComboBoxModel) TeamES1.getModel();
+            for (Equipo equipo : team) {
+                modelo8.addElement(equipo);
 
             }
 
@@ -1385,7 +1396,7 @@ public class Principal extends javax.swing.JFrame {
             String Nombre = Stadiumname1.getText();
             int capacity = Integer.parseInt(Capacity1.getText());
             String city = City1.getText();
-            Equipo teams = team.get(TeamES1.getSelectedIndex());
+            Equipo teams = team.get(TeamES.getSelectedIndex());
 
             JOptionPane.showMessageDialog(null, "Creado exitosamente");
             Stadiumname.setText("");
@@ -1482,6 +1493,7 @@ public class Principal extends javax.swing.JFrame {
             TeamES3.removeItemAt(selectedIndex);
             TeamES2.removeItemAt(selectedIndex);
             TeamES.removeItemAt(selectedIndex);
+            TeamES1.removeItemAt(selectedIndex);
             System.out.println("Elemento eliminado");
             JOptionPane.showMessageDialog(null, "Equipo Eliminado");
         }
@@ -1610,6 +1622,10 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TeamES1ActionPerformed
 
+    private void EliminarEQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarEQActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EliminarEQActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1665,6 +1681,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField Foot;
     private javax.swing.JTextField Foot1;
     private javax.swing.JPanel Jugador;
+    private javax.swing.JTable ListaEquipo;
+    private javax.swing.JTable ListaEstadio;
+    private javax.swing.JTable ListaJugador;
     private javax.swing.JButton ModPlayer;
     private javax.swing.JButton ModTeam;
     private javax.swing.JTextField Nameplayer;
@@ -1737,9 +1756,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane6;
     private javax.swing.JTabbedPane jTabbedPane7;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField modNameteam;
     private javax.swing.JTextField modcountryteam1;
