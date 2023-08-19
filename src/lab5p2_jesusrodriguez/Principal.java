@@ -132,6 +132,10 @@ public class Principal extends javax.swing.JFrame {
         Nameteam = new javax.swing.JTextField();
         ConfirmarTeam = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        TeamES6 = new javax.swing.JComboBox<>();
+        jLabel31 = new javax.swing.JLabel();
+        TeamES7 = new javax.swing.JComboBox<>();
+        jLabel32 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -966,13 +970,13 @@ public class Principal extends javax.swing.JFrame {
 
         ListaEquipo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Nombre", "Pais"
+                "Nombre", "Pais", "Rating"
             }
         ));
         jScrollPane1.setViewportView(ListaEquipo);
@@ -1159,15 +1163,35 @@ public class Principal extends javax.swing.JFrame {
 
         Equipo.addTab("Equipos", jPanel4);
 
+        jLabel31.setText("Equipo 1");
+
+        jLabel32.setText("Equipo 2");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel32)
+                    .addComponent(TeamES7, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel31)
+                    .addComponent(TeamES6, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(456, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 349, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jLabel31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TeamES6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(jLabel32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TeamES7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(165, Short.MAX_VALUE))
         );
 
         Equipo.addTab("Simulacion", jPanel3);
@@ -1240,6 +1264,18 @@ public class Principal extends javax.swing.JFrame {
 
             }
 
+             DefaultComboBoxModel modelo10 = (DefaultComboBoxModel) TeamES6.getModel();
+            for (Equipo equipo : team) {
+                modelo10.addElement(equipo);
+
+            }
+            
+             DefaultComboBoxModel modelo11 = (DefaultComboBoxModel) TeamES7.getModel();
+            for (Equipo equipo : team) {
+                modelo11.addElement(equipo);
+
+            }
+            
         }
 
     }//GEN-LAST:event_ConfirmarTeamMouseClicked
@@ -1391,6 +1427,10 @@ public class Principal extends javax.swing.JFrame {
             team.set(selectedIndex, new Equipo(Nombre, pais));
             TeamES4.removeItemAt(selectedIndex);
             TeamES.removeItemAt(selectedIndex);
+             TeamES1.removeItemAt(selectedIndex);
+            TeamES6.removeItemAt(selectedIndex);
+             TeamES7.removeItemAt(selectedIndex);
+           
             TeamES2.removeItemAt(selectedIndex);
             TeamES3.removeItemAt(selectedIndex);
             TeamES5.removeItemAt(selectedIndex);
@@ -1421,6 +1461,18 @@ public class Principal extends javax.swing.JFrame {
             DefaultComboBoxModel modelo5 = (DefaultComboBoxModel) TeamES5.getModel();
             for (Equipo equipo : team) {
                 modelo5.addElement(equipo);
+
+            }
+            
+             DefaultComboBoxModel modelo10 = (DefaultComboBoxModel) TeamES6.getModel();
+            for (Equipo equipo : team) {
+                modelo10.addElement(equipo);
+
+            }
+            
+             DefaultComboBoxModel modelo11 = (DefaultComboBoxModel) TeamES7.getModel();
+            for (Equipo equipo : team) {
+                modelo11.addElement(equipo);
 
             }
             modNameteam.setText("");
@@ -1550,6 +1602,8 @@ public class Principal extends javax.swing.JFrame {
             TeamES2.removeItemAt(selectedIndex);
             TeamES.removeItemAt(selectedIndex);
             TeamES1.removeItemAt(selectedIndex);
+            TeamES6.removeItemAt(selectedIndex);
+            TeamES7.removeItemAt(selectedIndex);
             System.out.println("Elemento eliminado");
             JOptionPane.showMessageDialog(null, "Equipo Eliminado");
         }
@@ -1723,7 +1777,7 @@ public class Principal extends javax.swing.JFrame {
 
             // TODO add your handling code here:
             for (Equipo t : team) {
-                Object[] row = {t.getNombre(), t.getPais()};
+                Object[] row = {t.getNombre(), t.getPais(), t.getRating()};
                 DefaultTableModel modelo = (DefaultTableModel) ListaEstadio.getModel();
                 modelo.addRow(row);
                 ListaEquipo.setModel(modelo);            
@@ -1832,6 +1886,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> TeamES3;
     private javax.swing.JComboBox<String> TeamES4;
     private javax.swing.JComboBox<String> TeamES5;
+    private javax.swing.JComboBox<String> TeamES6;
+    private javax.swing.JComboBox<String> TeamES7;
     private javax.swing.JTextField countryteam;
     private javax.swing.JTextField countryteam1;
     private javax.swing.JButton jButton1;
@@ -1861,6 +1917,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

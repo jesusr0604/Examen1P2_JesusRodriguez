@@ -37,11 +37,11 @@ public class Equipo {
         this.Nombre = Nombre;
     }
 
-    private int getRating() {
+    public int getRating() {
         return rating;
     }
 
-    private void setRating(int rating) {
+    public void setRating(int rating) {
         this.rating = rating;
     }
 
@@ -63,7 +63,7 @@ public class Equipo {
 
     @Override
     public String toString() {
-        return "Nombre=" + Nombre;
+        return  Nombre;
     }
 
     

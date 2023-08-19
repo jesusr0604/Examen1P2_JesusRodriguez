@@ -2,7 +2,7 @@
 package lab5p2_jesusrodriguez;
 
 
-public class Jugador {
+public abstract class  Jugador {
     private String Nombre;
     private int edad;
     private String Nacionalidad;
@@ -181,7 +181,7 @@ public class Jugador {
 
     @Override
     public String toString() {
-        return "Nombre=" + Nombre + ", edad=" + edad  ;
+        return Nombre   ;
     }
     
     
