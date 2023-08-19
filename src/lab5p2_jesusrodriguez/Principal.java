@@ -256,13 +256,13 @@ public class Principal extends javax.swing.JFrame {
 
         ListaJugador.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Edad", "Nacionalidad", "Equipo", "Rating"
+                "Nombre", "Edad", "Nacionalidad", "Equipo", "Rating", "Pie"
             }
         ));
         jScrollPane3.setViewportView(ListaJugador);
@@ -1744,7 +1744,7 @@ public class Principal extends javax.swing.JFrame {
 
             // TODO add your handling code here:
             for (Jugador t : eleven) {
-                Object[] row = {t.getNombre(),t.getEdad(),t.getNacionalidad(),t.getEquipo(),t.getRating()};
+                Object[] row = {t.getNombre(),t.getEdad(),t.getNacionalidad(),t.getEquipo(),t.getRating(),t.getPie()};
                 DefaultTableModel modelo = (DefaultTableModel) ListaEstadio.getModel();
                 modelo.addRow(row);
                 ListaEquipo.setModel(modelo);            
