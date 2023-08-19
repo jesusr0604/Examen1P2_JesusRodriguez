@@ -11,4 +11,7 @@ public class Mediocampo extends Jugador{
         super(Nombre, edad, Nacionalidad, pie, equipo,Pos);
     }
     
+    
+    
+    
 }

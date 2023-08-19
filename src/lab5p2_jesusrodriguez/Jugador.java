@@ -87,11 +87,11 @@ public class Jugador {
         this.pie = pie;
     }
 
-    private int getRating() {
+    public int getRating() {
         return rating;
     }
 
-    private void setRating(int rating) {
+    public void setRating(int rating) {
         this.rating = rating;
     }
 
